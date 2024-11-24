@@ -28,7 +28,7 @@
     \end{tabular}
     \caption{Persona 1}
     \end{table}
-\\
+
 
     \begin{table}[htbp!]
     \centering
@@ -50,7 +50,7 @@
     \end{tabular}
     \caption{Persona 2}
     \end{table}
-\\
+
 
     \begin{table}[htbp!]
     \centering
@@ -72,7 +72,7 @@
     \end{tabular}
     \caption{Persona 3}
     \end{table}
-\\
+
 
     \begin{table}[htbp!]
     \centering
@@ -94,6 +94,66 @@
     \end{tabular}
     \caption{Persona 4}
     \end{table}
-\\
+
+\hfill
+\section{Fully Dressed Use Cases}
+
+%\begin{table}[htbp!]
+    %\centering
+    \begin{longtable}{|m{4cm}|m{4cm}|m{3cm}|m{4cm}|}
+        \hline
+        \textbf{Nome Caso d'Uso} & \multicolumn{3}{p{11cm}|}{Carica Immobile} \\
+        \hline
+        \textbf{Goals in Context}
+        & \multicolumn{3}{p{11cm}|}{L'agente immobiliare vuole caricare un nuovo immobile nel sistema} \\
+        \hline
+        \textbf{Preconditions}
+        & \multicolumn{3}{p{11cm}|}{L'agente immobiliare deve essersi autenticato effettuando lo use case "Effettua Login"} \\
+        \hline
+        \textbf{Success End Condition}
+        & \multicolumn{3}{p{11cm}|}{Il sistema tiene traccia dell'immobile caricato dall'agente immobiliare} \\
+        \hline
+        \textbf{Failed End Condition}
+        & \multicolumn{3}{p{11cm}|}{Il sistema non tiene traccia dell'immobile caricato dall'agente immobiliare} \\
+        \hline
+        \textbf{Primary Actor}
+        & \multicolumn{3}{p{11cm}|}{L'agente immobiliare} \\
+        \hline
+        \textbf{Trigger}
+        & \multicolumn{3}{p{11cm}|}{L'agente immobiliare clicca sul pulsante "Crea Nuova Inserzione" della schermata M0} \\
+        \hline
+
+        \textbf{Main Scenario} & \textbf{Agente Immobiliare} & \textbf{Geoapify} & \textbf{Sistema} \\
+
+        \hline
+        \textbf{Step 1 }& L'agente immobiliare clicca sul pulsante "Crea Nuova Inserzione" della schermata M0. & & \\
+        \hline
+        \textbf{Step 2 }& & & Il sistema mostra la schermata M1. \\
+        \hline
+        \textbf{Step 3 }& L'agente immobiliare seleziona la posizione geografica dell'immobile, riempe i campi e clicca sul pulsante "Step Successivo"  & & \\
+        \hline
+        \textbf{Step 4} & & & Il sistema mostra la schermata M2 \\
+        \hline 
+        \textbf{Step 5 }& L'agente immobiliare riempe i campi e clicca sul pulsante "Step Successivo" & & \\
+        \hline
+        \textbf{Step 6 }& & & Il sistema mostra la schermata M3 \\
+        \hline 
+        \textbf{Step 7} & L'agente immobiliare carica le foto che vuole caricare e clicca sul pulsante "Step Successivo" & & \\
+        \hline
+        \textbf{ Step 8} & & & Il sistema mostra la schermata M4 \\
+        \hline
+        \textbf{Step 9 }& L'agente immobiliare riempe i campi e clicca sul pulsante "Conferma Dati" & & \\
+        \hline
+        \textbf{Step 10} & & & Il sistema mostra la schermata M5 \\
+        \hline
+        \textbf{Step 11} & L'Agente Immobiliare clicca sul pulsante "Conferma" & & \\
+        \hline
+        \textbf{Step 12} & & Geoapify verifica la presenza di zone d'interesse nei pressi dell'immobile & \\
+        \hline
+        \textbf{Step 13} & & & Il sistema tiene traccia dell'inserzione e mostra la schermata M0, terminando lo use case \\
+        \hline
+    \end{longtable}
+%\end{table}
+
 
 
