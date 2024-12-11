@@ -1,0 +1,22 @@
+\chapter{System Design}
+
+\section{Descrizione dell'Architettura}
+\section{Criteri di Design}
+Come richiesto dal cliente, e' stato scelto di progettare il sistema per dare maggiore priorita' alle qualita' della performance, della disponibilita' e dell'usabilita'.
+\section{Suddivisione in Sottosistemi}
+In quanto richiesta esplicita del cliente, il sistema e' stato suddiviso in un front-end e un back-end autonomi, che comunicano tramite API di rete. Il back-end e' suddiviso in un programma software che funge da web-server che espone delle API di rete e gestisce la logica di business, e un database. I due moduli del back-end comunicano tramite protocolli di rete. Il front-end e' stato pensato come applicazione web che comunica con il back-end tramite API per accedere ai dati salvati da esso. Non e' esclusa la possibilita' di realizzare client front-end alternativi in futuro, ad esempio un'applicazione mobile Android/iOS oppure un'applicazione desktop.
+\section{Scelte Tecnologiche}
+\subsection{Front-End}
+Per quanto riguarda l'applicazione web front-end e' stato scelto di realizzare una Single-Page Application utilizzando il framework front-end Angular.
+\subsection{Back-End}
+E' stato scelto Java per l'implementazione del software back-end, utilizzando il framework Jakarta EE. Questo framework e' stato scelto per semplificare lo sviluppo del software, in particolare in riferimento alla gestione del routing delle richieste. E' stato scelto di utilizzare un DBMS relazionale piuttosto che un DBMS NoSQL, poiche' l'affidabilita' garantita dalle proprieta' ACID e la maggiore performance della prima sono state ritenute piu' consoni ai criteri di design scelti rispetto alla maggiore scalabilita' delle soluzioni NoSQL. In particolare e' stato scelto l'RDBMS PostgreSQL data la sua natura gratuita e open-source. 
+\subsection{Deployment e Servizi Cloud}
+E' stato pensato di deployare il sistema su server di cloud-computing e di containerizzare le componenti del sistema usando Docker.
+
+
+
+
+\section{Schema di Persistenza dei Dati}
+\section{Class Diagram}
+\section{Sequence Diagram}
+\section{Design dell'Interfaccia Utente}

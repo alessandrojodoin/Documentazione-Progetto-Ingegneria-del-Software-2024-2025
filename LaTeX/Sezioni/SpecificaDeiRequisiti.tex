@@ -193,66 +193,68 @@
 %\end{table}
 
 
-\begin{longtable}{|m{5cm}|m{5cm}|m{5cm}|}
+\begin{longtable}{|m{4cm}|m{4cm}|m{3cm}|m{4cm}|}
         \hline
-        \textbf{Nome Caso d'Uso} & \multicolumn{2}{p{10cm}|}{Prenota Visita} \\
+        \textbf{Nome Caso d'Uso} & \multicolumn{3}{p{11cm}|}{Prenota Visita} \\
         \hline
-        \textbf{Goals in Context} & \multicolumn{2}{p{10cm}|}{Il cliente vuole prenotare una visita in presenza all'immobile} \\
+        \textbf{Goals in Context} & \multicolumn{3}{p{11cm}|}{Il cliente vuole prenotare una visita in presenza all'immobile} \\
         \hline
         \textbf{Preconditions}
-        & \multicolumn{2}{p{10cm}|}{Il cliente deve essersi autenticato} \\
+        & \multicolumn{3}{p{11cm}|}{Il cliente deve essersi autenticato} \\
         \hline
         \textbf{Success End Condition}
-        & \multicolumn{2}{p{10cm}|}{L'agente immobiliare che gestisce l'immobile viene notificato della richiesta di prenotazione} \\
+        & \multicolumn{3}{p{11cm}|}{L'agente immobiliare che gestisce l'immobile viene notificato della richiesta di prenotazione} \\
         \hline
         \textbf{Failed End Condition}
-        & \multicolumn{2}{p{10cm}|}{L'agente immobiliare che gestisce l'immobile non viene notificato della richiesta di prenotazione} \\
+        & \multicolumn{3}{p{11cm}|}{L'agente immobiliare che gestisce l'immobile non viene notificato della richiesta di prenotazione} \\
         \hline
         \textbf{Primary Actor}
-        & \multicolumn{2}{p{10cm}|}{Cliente} \\
+        & \multicolumn{3}{p{11cm}|}{Cliente} \\
         \hline
         \textbf{Trigger}
-        & \multicolumn{2}{p{10cm}|}{Il cliente clicca sul pulsante "Prenota Visita" della schermata M0} \\
+        & \multicolumn{3}{p{11cm}|}{Il cliente clicca sul pulsante "Prenota Visita" della schermata M0} \\
         \hline
 
-        \textbf{Main Scenario} & \textbf{Cliente} & \textbf{Sistema} \\
+        \textbf{Main Scenario} & \textbf{Cliente} & \textbf{Google Calendar} & \textbf{Sistema} \\
 
         \hline
-        \textbf{Step 1}& Il cliente clicca sul pulsante "Prenota Visita" della schermata M0 & \\
+        \textbf{Step 1}& Il cliente clicca sul pulsante "Prenota Visita" della schermata M0 & & \\
         \hline
-        \textbf{Step 2}&  & Il sistema mostra la schermata pop-up M1 \\
+        \textbf{Step 2}& & & Il sistema mostra la schermata pop-up M1 \\
         \hline
-        \textbf{Step 3}& Il cliente inserisce data e orario e clicca sul pulsante "Avanti" & \\
+        \textbf{Step 3}& Il cliente inserisce data e orario e clicca sul pulsante "Avanti" & & \\
         \hline
-        \textbf{Step 4} & & Il sistema mostra la schermata M2 \\
+        \textbf{Step 4} & & & Il sistema mostra la schermata M2 \\
         \hline
-        \textbf{Step 5} & Il cliente inserisce i suoi contatti e clicca sul pulsante "Avanti" & \\
+        \textbf{Step 5} & Il cliente inserisce i suoi contatti e clicca sul pulsante "Avanti" & & \\
         \hline
-        \textbf{Step 6} & &Il sistema mostra la schermata M3\\ 
+        \textbf{Step 6} & & &Il sistema mostra la schermata M3\\ 
         \hline
-        \textbf{Step 7} & Il cliente clicca sul pulsante "Conferma" & \\
+        \textbf{Step 7} & Il cliente clicca sul pulsante "Conferma" & & \\
         \hline
-        \textbf{Step 8} & & Il sistema mostra la schermata M4 \\
+        \textbf{Step 8} & & Google Calendar tiene traccia della richiesta di prenotazione e notifica l'agente immobiliare responsabile & \\
         \hline
-        \textbf{Step 9} & Il cliente clicca sul pulsante "Chiudi" & \\
+        \textbf{Step 9} & & & Il sistema mostra la schermata M4 \\
         \hline
-        \textbf{Step 10} & & Il sistema ritorna alla schermata M0 e termina il caso d'uso \\
+        \textbf{Step 10} & Il cliente clicca sul pulsante "Chiudi" & & \\
+        \hline
+        \textbf{Step 11} & & & Il sistema ritorna alla schermata M0 e termina il caso d'uso \\
         \hline
     \end{longtable}
     
-\begin{longtable}{|m{5cm}|m{5cm}|m{5cm}|}
+\begin{longtable}{|m{4cm}|m{4cm}|m{3cm}|m{4cm}|}
     \hline
-        \textbf{Extension 1:} \newline  Il cliente torna alla schermata precedente & & \\
+        \textbf{Extension 1:} \newline  Il cliente torna alla schermata precedente & & &\\
         \hline
-        \textbf{Step 3a/5a/7a} & Il cliente clicca sul pulsante "Torna Indietro"&  \\
+        \textbf{Step 3a/5a/7a} & Il cliente clicca sul pulsante "Torna Indietro"& & \\
         \hline
-        \textbf{Step 4a/6a/8a} & & Il sistema mostra la schermata precedente e si torna allo step 1/3/5 del Main Scenario ($M1 \to M0$, $M2 \to M1$, $M3 \to M2$) \\
+        \textbf{Step 4a/6a/8a} & & & Il sistema mostra la schermata precedente e si torna allo step 1/3/5 del Main Scenario ($M1 \to M0$, $M2 \to M1$, $M3 \to M2$) \\
         \hline
-        \textbf{Extension 2:} \newline Il cliente chiude la schermata pop-up & & \\
+        \textbf{Extension 2:} \newline Il cliente chiude la schermata pop-up & & &\\
         \hline
-        \textbf{Step 3b/5b/7b/9b} & Il cliente chiude la schermata cliccando sulla "X" in alto a destra & \\
+        \textbf{Step 3b/5b/7b/9b} & Il cliente chiude la schermata cliccando sulla "X" in alto a destra & &\\
         \hline
-        \textbf{Step 4b,6b,8b,10b} & & Il sistema mostra la schermata M0 e ritorna allo step 1 del Main Scenario \\
+        \textbf{Step 4b,6b,8b,10b} & & & Il sistema mostra la schermata M0 e ritorna allo step 1 del Main Scenario \\
         \hline
     \end{longtable}
         \subsection{Mock-Up di Sistema}
@@ -354,11 +356,11 @@
     \end{tabular}
     \captionof{table}[Persona 4]{Persona 4}
     \subsection{Analisi delle Personas}
-    Per quanto riguarda la Persona di Juan Bandidos, poiche' non ha molta praticità con la lingua, si è rivelato ancor più necessario che il sito sia navigabile intuitivamente, anche senza necessariamente capire a pieno la lingua italiana. Cio' potrebbe essere realizzato indicando gli elementi dell'interfaccia grafica usando non solo testo scritto ma anche icone. Inoltre, data la distanza, si è ritenuto che la visita per un immobile si possa fare anche a distanza.
-    \newline
-    Invece per quanto riguarda la Persona di Gustavo Panini, viste le sue necessità di attrezzature particolari per il figlio con difficoltà motorie, si è pensato di rendere obbligatorio un tag per specificare se quell'immobile è adibito a persone con disabilità motorie oppure no così che Panini potrà, grazie a un filtro, compiere una ricerca più mirata.
-    \newline
-    Infine, analizzando la Persona di Rita Melograno e' stato deciso che, per rendere la sua esperienza lavorativa il meno difficoltosa possibile, il sito sarà intuibile e piacevole e che le scritte avranno un carattere non inferiore a 16px per renderlo piu' facilmente navigabile da persone con difficolta' visive.
+    Dopo aver analizzato le Personas, ci siamo resi conto di implementazioni aggiuntive necessarie al nostro sito. \newline
+    Juan Bandidos, non avendo praticità con la lingua, ci ha fatto capire la necessità di un'interfaccia intuitivamente navigabile, anche senza che l'utente conosca perfettamente la lingua italiana. Abbiamo introdotto icone per facilitare la navigazione.\newline
+    Inoltre, sempre grazie alla Persona di Juan Bandidos, abbiamo introdotto la possibilità di effettuare visite in remoto per gli immobili.\newline
+    Queste aggiunte sono risultate molto importanti anche per la Persona di Rita Melograno, la quale, a causa di problemi di vista, trarrà beneficio sia dall'introduzione delle icone sia dalla grandezza delle scritte, non inferiore a 16 px.\newline
+    Infine, grazie alla Persona di Gustavo Panini, prendendo in considerazione la necessità di attrezzature particolari dovute a difficoltà motorie, abbiamo reso obbligatorio un tag per specificare se un determinato immobile è dotato di strutture per disabili o meno, consentendo una ricerca mirata.\newline
 \hfill
 
 
