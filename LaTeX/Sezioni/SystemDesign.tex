@@ -4,28 +4,33 @@
 \section{Criteri di Design}
 Come richiesto dal cliente, e' stato scelto di progettare il sistema per dare maggiore priorita' alle qualita' della performance, della disponibilita' e dell'usabilita'.
 \section{Suddivisione in Sottosistemi}
-E' stato scelto di realizzare un'architettura client-server (in quanto richiesto dal cliente), chiusa a tre-strati:
-Il client comprende il primo strato che rappresenta l'interfaccia con la quale l'utente interagisce con il sistema, il server invece comprende il secondo strato che e' composto dalla logica di controllo dell'applicazione e il modello dei dati, e il terzo strato che si occupa della persistenza dei dati. I tre strati comunicano tramite protocolli di rete standard. 
+E' stato scelto di realizzare un'architettura client-server (in quanto richiesto dal cliente), chiusa a tre-strati, dove:
+\begin{itemize}
+    \item il client comprende il primo strato che rappresenta l'interfaccia con la quale l'utente interagisce con il sistema; 
+    \item il server invece comprende il secondo strato che e' composto dalla logica di controllo dell'applicazione e il modello dei dati; 
+    \item il terzo strato si occupa della persistenza dei dati. 
+\end{itemize}
+I tre strati comunicano tramite protocolli di rete standard.
 Questa suddivisione in strati migliora la modularita' del sistema, e inoltre renderebbe piu' semplice l'Active- \newline
-L'architettura è stata progettata come chiusa, anziché aperta. Sebbene un'architettura aperta avrebbe potuto offrire prestazioni superiori, abbiamo ritenuto che l'impatto di questa differenza fosse trascurabile. Questa scelta si giustifica per i vantaggi che un'architettura chiusa offre, quali la migliore modularita' del codice e una migliore qualita' interna del software. \newline
+L'architettura è stata progettata come chiusa, anziché aperta. Sebbene un'architettura aperta avrebbe potuto offrire prestazioni superiori, è stato ritenuto che l'impatto di questa differenza fosse trascurabile. Questa scelta si giustifica per i vantaggi che un'architettura chiusa offre, quali la migliore modularita' del codice e una migliore qualita' interna del software. \newline
 Piuttosto che un'architettura a microservizi, e' stata scelta un'architettura a strati poiche' si ha un numero minore di comunicazioni tramite rete tra moduli, le quali potrebbero appesantire il sistema e ridurre la performance. Inoltre dato che il sistema non e' particolarmente complesso, e' stato determinato che i vantaggi di una soluzione a microservizi non compenserebbero i costi necessari per la sua realizzazione.
 %Invece per quanto riguarda la scelta di un'architettura monolitica, e' vero che sarebbe ancora piu' performante dal punto di vista della comunicazione tra moduli, ma e' stato ritenuto che un'architettura monolitica avrebbe un impatto particolarmente negativo sulla modularita' del sistema e dunque anche la qualita' interna.
 \newline
 Il client front-end e' stato pensato come applicazione web che comunica con il back-end tramite API per accedere ai dati salvati da esso. Non e' esclusa la possibilita' di realizzare client aggiuntivi in futuro, ad esempio un'applicazione mobile Android/iOS oppure un'applicazione desktop.
 \newline
-Abbiamo scelto di realizzare lo strato della persistenza dei dati utilizzando un DBMS relazionale piuttosto che un DBMS NoSQL, poiche' l'affidabilita' garantita dalle proprieta' ACID. e la maggiore performance della prima sono state ritenute piu' consoni ai criteri di design scelti rispetto alla maggiore scalabilita' delle soluzioni NoSQL.
+Abbiamo scelto di realizzare lo strato della persistenza dei dati utilizzando un DBMS relazionale piuttosto che un DBMS NoSQL, poiche' l'affidabilita' garantita dalle proprieta' ACID e la maggiore performance di quello relazionale, sono state ritenute piu' consoni ai criteri di design scelti rispetto alla maggiore scalabilita' delle soluzioni NoSQL.
 
 
 \section{Scelte Tecnologiche}
 \subsection{Front-End}
 Per quanto riguarda l'applicazione web front-end e' stato scelto di realizzare una Single-Page Application utilizzando TypeScript con il framework front-end Angular, distribuito da un server HTTP apposito. 
-In particolare e' stato scelto di usare TypeScript piuttosto che JavaScript per il suo supporto a tipi statici e la verifica di errori a tempo di compilazione, in modo da avere una qualita' interna del codice maggiore. 
+In particolare e' stato scelto di usare TypeScript piuttosto che JavaScript per il suo supporto a tipi statici e la verifica di errori a tempo di compilazione, in modo da avere una maggiore qualita' interna del codice. 
 La scelta del framework Angular e' dovuta a una facilitazione dello sviluppo dell'interfaccia grafica e della logica del programma.
 \subsection{Back-End}
-Per l'implementazione del web server back-end sono stati utilizzati Java ed il framework web JAX-RD della specifica Jakarta EE. Java e' stato scelto poiche' e' stato richiesto esplicitamente dal cliente di utilizzare un linguaggio Object Oriented, e inoltre il linguaggio offre molti vantaggi, tra i quali la portabilita', il supporto alle eccezioni che riducono il rischio di una terminazione totale del programma in caso di errore, migliorando la disponibilita' e la fault-tolerance, e la sua natura staticamente e fortemente tipata che riduce il numero di potenziali errori di programmazione e migliora la testabilita' del codice. Invece il framework JAX-RS e' stato scelto per semplificare lo sviluppo del software ed in particolare per la gestione del routing delle richieste. Per il database e' stato scelto l'RDBMS PostgreSQL data la sua natura gratuita e open-source. 
+Per l'implementazione del web server back-end sono stati utilizzati Java ed il framework web JAX-RD della specifica Jakarta EE. Java e' stato scelto poiche' e' stato richiesto esplicitamente dal cliente di utilizzare un linguaggio Object Oriented, e inoltre il linguaggio offre molti vantaggi tra i quali: la portabilita'; il supporto alle eccezioni che riducono il rischio di una terminazione totale del programma in caso di errore, migliorando la disponibilita' e la fault-tolerance; la sua natura staticamente e fortemente tipata che riduce il numero di potenziali errori di programmazione e migliora la testabilita' del codice. Mentre il framework JAX-RS e' stato scelto per semplificare lo sviluppo del software ed in particolare per la gestione del routing delle richieste. Per il database e' stato scelto l'RDBMS PostgreSQL data la sua natura gratuita e open-source. 
 \subsection{Servizi di Terze Parti}
 \subsection{Deployment e Servizi Cloud}
-E' stato pensato di implementare il sistema su server di cloud-computing e di containerizzare le componenti del sistema usando Docker. La scelta di utilizzare servizi di cloud-computing offre notevoli vantaggi, quali una migliore affidabilita', poiche' il rischio che un problema hardware impatti il sistema e' ridotto grazie alla virtualizzazione e alla capacita' dei sistemi cloud di migrare le macchine virtuali tra macchine diverse, una riduzione iniziale dei costi delle risorse computazionali, e una buona capacita' di elasticita' grazie al Dynamic Provisioning offerto.
+E' stato pensato di implementare il sistema su server di cloud-computing e di containerizzare le componenti del sistema usando Docker. La scelta di utilizzare servizi di cloud-computing offre notevoli vantaggi tra cui una migliore affidabilita', poiche' il rischio che un problema hardware impatti il sistema e' ridotto grazie alla virtualizzazione e alla capacita' dei sistemi cloud di migrare le macchine virtuali tra macchine diverse, una riduzione iniziale dei costi delle risorse computazionali, e una buona capacita' di elasticita' grazie al Dynamic Provisioning offerto.
 
 
 
